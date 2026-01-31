@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Age as on Date Calculator – Calculate Age on a Specific Date</title>
+
+  <meta name="description" content="Free online age as on date calculator to calculate your exact age on a specific date. Useful for exams, job eligibility and government forms.">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .box {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #007bff;
+      color: #fff;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #222;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .info {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    nav {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      margin: 0 8px;
+      text-decoration: none;
+      color: #007bff;
+      font-size: 14px;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 13px;
+      text-align: center;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <a href="./">Age Calculator</a> |
+  <a href="age-in-days.html">Age in Days</a> |
+  <a href="age-as-on-date.html">Age as on Date</a>
+</nav>
+
+<h1>Age as on Date Calculator</h1>
+
+<div class="box">
+
+  <label>Date of Birth:</label>
+  <input type="date" id="dob">
+
+  <label>As on Date:</label>
+  <input type="date" id="asOn">
+
+  <button onclick="calculateAgeOnDate()">Calculate Age</button>
+
+  <div id="result"></div>
+
+</div>
+
+<div class="info">
+  <p>
+    This free age as on date calculator helps you calculate your exact age on a
+    specific date. It is commonly used for exam eligibility, government forms,
+    job applications, and official verification.
+  </p>
+</div>
+
+<footer>
+  <hr>
+  © 2026 Age Calculator · For informational purposes only
+</footer>
+
+<script>
+function calculateAgeOnDate() {
+  const dobValue = document.getElementById("dob").value;
+  const asOnValue = document.getElementById("asOn").value;
+
+  if (!dobValue || !asOnValue) {
+    document.getElementById("result").innerText =
+      "Please select both dates.";
+    return;
+  }
+
+  const dob = new Date(dobValue);
+  const asOn = new Date(asOnValue);
+
+  let years = asOn.getFullYear() - dob.getFullYear();
+  let months = asOn.getMonth() - dob.getMonth();
+  let days = asOn.getDate() - dob.getDate();
+
+  if (days < 0) {
+    months--;
+    const prevMonth = new Date(asOn.getFullYear(), asOn.getMonth(), 0);
+    days += prevMonth.getDate();
+  }
+
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  document.getElementById("result").innerText =
+    `Age as on selected date: ${years} years, ${months} months, ${days} days.`;
+}
+</script>
+
+</body>
+</html>
