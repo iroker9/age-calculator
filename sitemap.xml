@@ -3,11 +3,19 @@
 
   <url>
     <loc>https://iroker9.github.io/age-calculator/</loc>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://iroker9.github.io/age-calculator/age-in-days.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://iroker9.github.io/age-calculator/age-as-on-date.html</loc>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
