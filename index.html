@@ -71,6 +71,18 @@
       color: #555;
     }
 
+    nav {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      margin: 0 8px;
+      text-decoration: none;
+      color: #007bff;
+      font-size: 14px;
+    }
+
     footer {
       margin-top: 40px;
       font-size: 13px;
@@ -81,6 +93,12 @@
 </head>
 
 <body>
+
+<nav>
+  <a href="./">Age Calculator</a> |
+  <a href="age-in-days.html">Age in Days</a> |
+  <a href="age-as-on-date.html">Age as on Date</a>
+</nav>
 
 <h1>Age Calculator</h1>
 
@@ -94,9 +112,6 @@
   <div id="result"></div>
 
   <!-- AD SLOT (ADD LATER HERE) -->
-  <!-- Example:
-  <script src="YOUR_AD_CODE.js"></script>
-  -->
 
 </div>
 
@@ -105,6 +120,20 @@
     This free age calculator helps you calculate your exact age in years, months,
     and days based on your date of birth. It is useful for exams, job applications,
     government forms, and personal records.
+  </p>
+</div>
+
+<div class="info">
+  <h3>Frequently Asked Questions</h3>
+
+  <p>
+    <strong>Is this age calculator accurate?</strong><br>
+    Yes, it calculates age based on exact date differences, including leap years.
+  </p>
+
+  <p>
+    <strong>Can I use this for official purposes?</strong><br>
+    Yes, this calculator is suitable for exams, job applications, and government forms.
   </p>
 </div>
 
@@ -118,7 +147,8 @@ function calculateAge() {
   const dobInput = document.getElementById("dob").value;
 
   if (!dobInput) {
-    document.getElementById("result").innerText = "Please select your date of birth.";
+    document.getElementById("result").innerText =
+      "Please select your date of birth.";
     return;
   }
 
