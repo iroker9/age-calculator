@@ -2,41 +2,149 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Age in Days Calculator</title>
-  <meta name="description" content="Calculate your exact age in days from your date of birth using this free online age in days calculator.">
+
+  <title>Age in Days Calculator – Calculate Your Exact Age in Days</title>
+
+  <meta name="description" content="Free online age in days calculator to calculate your exact age in total days from your date of birth. Useful for exams, medical records and official forms.">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .box {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #007bff;
+      color: #fff;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #222;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .info {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    nav {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      margin: 0 8px;
+      text-decoration: none;
+      color: #007bff;
+      font-size: 14px;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 13px;
+      text-align: center;
+      color: #777;
+    }
+  </style>
 </head>
 
 <body>
 
+<nav>
+  <a href="./">Age Calculator</a> |
+  <a href="age-in-days.html">Age in Days</a>
+</nav>
+
 <h1>Age in Days Calculator</h1>
 
-<label>Date of Birth:</label><br>
-<input type="date" id="dob"><br><br>
+<div class="box">
 
-<button onclick="calculateDays()">Calculate Age in Days</button>
+  <label for="dob">Date of Birth:</label>
+  <input type="date" id="dob">
 
-<h2 id="result"></h2>
+  <button onclick="calculateAgeInDays()">Calculate Age in Days</button>
 
-<p>
-This tool calculates your age in total days from your date of birth until today.
-</p>
+  <div id="result"></div>
+
+  <!-- AD SLOT (ADD LATER HERE) -->
+
+</div>
+
+<div class="info">
+  <p>
+    This free age in days calculator helps you calculate your exact age in total
+    days from your date of birth until today. It is useful for medical records,
+    exams, government forms, and personal tracking.
+  </p>
+</div>
+
+<footer>
+  <hr>
+  © 2026 Age Calculator · For informational purposes only
+</footer>
 
 <script>
-function calculateDays() {
-  const dobValue = document.getElementById("dob").value;
-  if (!dobValue) {
-    document.getElementById("result").innerText = "Please select your date of birth.";
+function calculateAgeInDays() {
+  const dobInput = document.getElementById("dob").value;
+
+  if (!dobInput) {
+    document.getElementById("result").innerText =
+      "Please select your date of birth.";
     return;
   }
 
-  const dob = new Date(dobValue);
+  const dob = new Date(dobInput);
   const today = new Date();
+
   const diffTime = today - dob;
   const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
   document.getElementById("result").innerText =
-    "You are approximately " + diffDays + " days old.";
+    `You are ${diffDays} days old.`;
 }
 </script>
 
